@@ -58,8 +58,7 @@ class Card(models.Model):
             o.amount = -amount
             o.rest = self.rest
             o.save()
-            
-        return o
+            return o
 
 
 
