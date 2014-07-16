@@ -1,0 +1,27 @@
+{% extends 'bank/base.html' %}
+
+
+{% block title %}Выберите операцию{% endblock %}
+
+{% block base_content %}
+	Выберите операцию:
+		<ul>
+			<li><a href="{% url 'balance' card_number %}">Просмотр баланса</a></li>
+			<li><a href="{% url 'withdraw' card_number %}">Снятие наличных</a></li>
+		</ul>
+
+	
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="{% url 'logout' %}">выйти</a>.<br/><br/>

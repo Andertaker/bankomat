@@ -1,0 +1,29 @@
+{% extends 'bank/base.html' %}
+
+
+{% block title %}Снятие средств{% endblock %}
+
+{% block base_content %}
+	<h4>Снятие средств</h4>
+	Введите сумму:<br>
+	<form method="post" action="{% url 'withdraw' card_number %}">
+		{% csrf_token %}
+		<p>
+			{{ form.amount.label }}
+				{{ form.amount.errors }}
+				{% if error_msg %}
+				<ul class="errorlist">
+					<li>{{ error_msg }}</li>
+				</ul>
+				{% endif %}
+			{{ form.amount }}
+			
+		</p>
+		<input value="Очистить" type="button" onclick="clear_input();">
+		<input type="submit" value="ОК" />
+	</form>
+	
+
+	
+{% endblock %}
+

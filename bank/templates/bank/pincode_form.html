@@ -1,0 +1,28 @@
+{% extends 'bank/base.html' %}
+
+
+{% block title %}Введите пин-код{% endblock %}
+
+{% block base_content %}
+	Введите пин-код:<br>
+	<form method="post" action="{% url 'pincode' card_number %}">
+		{% csrf_token %}
+		<p>
+			{{ form.pincode.label }}
+				{{ form.pincode.errors }}
+				{% if incorrect_pincode_msg %}
+				<ul class="errorlist">
+					<li>{{ incorrect_pincode_msg }}</li>
+				</ul>
+				{% endif %}
+			{{ form.pincode }}
+			
+		</p>
+		<input value="Очистить" type="button" onclick="clear_input();">
+		<input type="submit" value="ОК" />
+	</form>
+	
+
+	
+{% endblock %}
+

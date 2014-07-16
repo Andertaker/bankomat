@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>Банкомат - {% block title %}{% endblock %}</title>
+        <style>
+        	.errorlist {
+        		color: red;
+        		
+        	}
+        	.exit{
+        		width: 80%;
+        		text-align: right;
+        	}
+        	
+        </style>
+    </head>
+    
+    
+    <body>
+    	{% if card_number or card %}
+    	<div class="exit">
+    		{#<a href="/">Выход</a> #}
+    		<input value="Выход" type="button" onclick="window.location='/';">
+    		<br><br>
+    	</div>
+    	{% endif %}
+    	
+    	{% block base_content %}  Empty page   {% endblock %}
+    	
+    </body>
+        
+    
+    <script>
+    	function clear_input() {
+    		var inputs = document.getElementsByTagName("input");
+    		for (i in inputs) {
+    			var input = inputs[i];
+    			if (input.type == "text" || input.type == "password")
+    				input.value = "";
+    		}
+    	}
+    </script>
+</html>
+
+
+

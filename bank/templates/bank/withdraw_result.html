@@ -1,0 +1,28 @@
+{% extends 'bank/base.html' %}
+
+
+{% block title %}Снятие средств{% endblock %}
+
+{% block base_content %}
+	<h4>Снятие средств</h4>
+	Номер карты: {{ card.card_number }}<br>
+	Сумма списания: {{ operation.amount }}<br>
+	Время: {{ operation.date|date:"Y-m-d H:i" }}<br>
+	Остаток: {{ card.rest }}<br>
+	
+	<input value="Назад" type="button" onclick="history.back()">
+	
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+<a href="{% url 'logout' %}">выйти</a>.<br/><br/>

@@ -1,0 +1,19 @@
+{% extends 'bank/base.html' %}
+
+
+{% block title %}Введите номер карты{% endblock %}
+
+{% block base_content %}
+	Введите номер карты:<br>
+	<form method="post" action="{% url 'number' %}">
+		{% csrf_token %}
+		{{ form.as_p }}
+		
+		<input value="Очистить" type="button" onclick="clear_input();">
+		<input type="submit" value="ОК" />
+	</form>
+	
+	
+	
+{% endblock %}
+
