@@ -2,7 +2,7 @@
 
 from django import forms
 from django.utils.translation import ugettext, ugettext_lazy as _
-from django.core.validators import MinLengthValidator
+from django.core.validators import MinValueValidator, MinLengthValidator
 
 from .models import Card
 
@@ -67,14 +67,11 @@ class PincodeForm(forms.Form):
     
     
 class WithdrawForm(forms.Form):
-    amount = forms.CharField(label="Сумма снятия",
-                validators=[int_validator],
+    amount = forms.IntegerField(label="Сумма снятия",
+                min_value = 1,
+                #validators=[MinValueValidator],
                 widget=forms.TextInput(
                     attrs={'required': "", "size": 6}),
                 )
     
-    def clean(self):
-        int_validator(self.data["amount"])
-        self.cleaned_data["amount"] = int(self.data["amount"])
-        return self.cleaned_data 
     
