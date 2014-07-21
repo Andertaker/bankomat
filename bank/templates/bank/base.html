@@ -40,6 +40,25 @@
     				input.value = "";
     		}
     	}
+    	
+    	function card_number(e, el) {
+    		var input = document.getElementById('id_number');
+    		var number = input.value.trim().replace(/-/g, '');
+    		var l = number.length;
+    		var arr = [];
+    		
+			for (var i = 0; i < l; i+=4)
+				arr.push( number.slice(i, (i+4)) );
+    		
+
+    		input.value = arr.join("-");
+    		
+    	}
+    	
+    	var elem = document.getElementById('id_number');
+    	elem.addEventListener('input', card_number, false);
+    	
+    	
     </script>
 </html>
 

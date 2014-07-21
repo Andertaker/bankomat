@@ -22,7 +22,7 @@ def card_number_validator(value):
     
     
 class CardNumberForm(forms.Form):
-    number = forms.CharField(max_length=20,
+    number = forms.CharField(max_length=19,
                              widget=forms.TextInput(attrs={'required': "required"}))
     
     error_messages = {
